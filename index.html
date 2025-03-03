@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Perpustakaan Ceria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: #FFEB3B;
+            color: #4CAF50;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #FFC107;
+            transform: scale(1.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF6F61, #FFAB40);
+        }
+
+        /* Gambar buku semua 700px tinggi */
+        .book-image {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-pink-100">
+    <div class="container mx-auto p-6">
+        <header class="text-white text-center py-5 rounded-lg shadow-md fade-in">
+            <h1 class="text-4xl font-bold">📚 E-Perpustakaan Ceria 🌟</h1>
+            <p class="mt-2">Selamat Datang! Cari buku kegemaran anda di sini!</p>
+        </header>
+
+        <nav class="mt-6 bg-white p-4 rounded-lg shadow-md fade-in flex justify-around">
+            <a href="majalah.html" class="nav-link">📰 Majalah</a>
+            <a href="novel.html" class="nav-link">📖 Novel</a>
+            <a href="buku_sekolah.html" class="nav-link">🏫 Buku Sekolah</a>
+            <a href="buku_kesihatan.html" class="nav-link">💪 Kesihatan</a>
+            <a href="buku_teknologi.html" class="nav-link">💻 Teknologi</a>
+        </nav>
+
+        <div class="mt-6 fade-in" style="animation-delay: 0.3s;">
+            <input id="searchInput" type="text" placeholder="🔎 Cari buku kesukaan..." 
+                   class="w-full p-3 border-2 border-pink-300 rounded-lg shadow-sm transition duration-300 focus:ring-2 focus:ring-pink-500 focus:outline-none" 
+                   onkeyup="searchBooks()">
+        </div>
+
+        <div id="bookList" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            <!-- Buku 1 -->
+            <div class="bg-white p-4 rounded-lg shadow-md fade-in">
+                <a href="buku_ceria1.html">
+                    <img src="book1.jpg" alt="Buku Ceria 1" class="book-image">
+                </a>
+                <h2 class="text-xl font-bold mt-3">Buku Ceria 1</h2>
+                <p class="text-gray-600">Seronok dan penuh warna-warni!</p>
+            </div>
+
+            <!-- Buku 2 -->
+            <div class="bg-white p-4 rounded-lg shadow-md fade-in" style="animation-delay: 0.4s;">
+                <a href="buku_ceria2.html">
+                    <img src="book2.jpg" alt="Buku Ceria 2" class="book-image">
+                </a>
+                <h2 class="text-xl font-bold mt-3">Buku Ceria 2</h2>
+                <p class="text-gray-600">Membawa anda ke dunia imaginasi.</p>
+            </div>
+
+            <!-- Buku 3 -->
+            <div class="bg-white p-4 rounded-lg shadow-md fade-in" style="animation-delay: 0.5s;">
+                <a href="buku_ceria3.html">
+                    <img src="book3.jpg" alt="Buku Ceria 3" class="book-image">
+                </a>
+                <h2 class="text-xl font-bold mt-3">Buku Ceria 3</h2>
+                <p class="text-gray-600">Penuh inspirasi dan motivasi.</p>
+            </div>
+        </div>
+
+        <footer class="bg-yellow-100 text-center py-4 mt-10 fade-in">
+            <p class="text-gray-700">Hubungi Kami: 019512630 - Fat | Email: <a href="mailto:fatamorgana@gmail.com" class="text-pink-600 font-bold">fatamorgana@gmail.com</a></p>
+        </footer>
+
+        <script>
+            function searchBooks() {
+                const input = document.getElementById('searchInput').value.toLowerCase();
+                const books = document.querySelectorAll('#bookList div');
+
+                books.forEach(book => {
+                    const title = book.querySelector('h2').innerText.toLowerCase();
+                    if (title.includes(input)) {
+                        book.style.display = '';
+                    } else {
+                        book.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

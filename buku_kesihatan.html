@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majalah & Surat Khabar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: #38a169;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #48bb78;
+            transform: scale(1.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #38a169, #9ae6b4);
+        }
+
+        /* Gambar semua 700px tinggi */
+        .fixed-height-image {
+            height: 700px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-green-50">
+    <div class="container mx-auto p-6">
+        <header class="text-white text-center py-5 rounded-lg shadow-md fade-in">
+            <h1 class="text-4xl font-bold">📰 Majalah & Surat Khabar</h1>
+            <p class="mt-2">Dapatkan Bacaan Terkini di Sini!</p>
+        </header>
+
+        <nav class="mt-6 bg-white p-4 rounded-lg shadow-md flex justify-around fade-in">
+            <a href="E-library.html" class="nav-link">🏠 Laman Utama</a>
+            <a href="novel.html" class="nav-link">📖 Novel & Komik</a>
+            <a href="buku_sekolah.html" class="nav-link">📚 Buku Sekolah</a>
+            <a href="buku_kesihatan.html" class="nav-link">💪 Kesihatan</a>
+            <a href="buku_teknologi.html" class="nav-link">💻 Teknologi</a>
+        </nav>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 fade-in">
+            <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                <a href="https://www.contohlink.com/majalah-sains.pdf" target="_blank">
+                    <img src="majalah1.jpg" alt="Majalah Sains" class="fixed-height-image rounded-lg">
+                </a>
+                <h2 class="text-xl font-bold mt-3 text-green-600">🔬 Majalah Sains</h2>
+                <p class="text-gray-600">Edisi Januari 2025</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                <a href="https://www.contohlink.com/majalah-teknologi.pdf" target="_blank">
+                    <img src="majalah2.jpg" alt="Majalah Teknologi" class="fixed-height-image rounded-lg">
+                </a>
+                <h2 class="text-xl font-bold mt-3 text-green-600">💻 Majalah Teknologi</h2>
+                <p class="text-gray-600">Edisi Februari 2025</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                <a href="https://www.contohlink.com/suratkhabar-terkini.pdf" target="_blank">
+                    <img src="suratkhabar1.jpg" alt="Surat Khabar Sinar Harian" class="fixed-height-image rounded-lg">
+                </a>
+                <h2 class="text-xl font-bold mt-3 text-green-600">🗞️ Surat Khabar Sinar Harian</h2>
+                <p class="text-gray-600">Terbitan Terkini</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-green-100 text-center py-4 mt-10 fade-in">
+        <p class="text-gray-700">Hubungi Kami: 011-3234 54879 - Faez | Email: 
+            <a href="mailto:fizontal@gmail.com" class="text-green-600 font-bold">fizontal@gmail.com</a>
+        </p>
+    </footer>
+</body>
+</html>

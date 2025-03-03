@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Sekolah Ceria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: #FF6F61;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #FFAB40;
+            transform: scale(1.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF7043, #FFEE58);
+        }
+
+        /* Tetapkan gambar buku dengan ketinggian 700px */
+        .book-image {
+            height: 700px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-orange-100">
+    <div class="container mx-auto p-6">
+        <header class="text-white text-center py-5 rounded-lg shadow-md fade-in">
+            <h1 class="text-4xl font-bold">📚 Buku Sekolah Ceria 🎉</h1>
+            <p class="mt-2">Belajar Dengan Gembira Setiap Hari!</p>
+        </header>
+
+        <nav class="mt-6 bg-white p-4 rounded-lg shadow-md fade-in flex justify-around">
+            <a href="E-library.html" class="nav-link">🏠 Laman Utama</a>
+            <a href="majalah.html" class="nav-link">📰 Majalah</a>
+            <a href="novel.html" class="nav-link">📖 Novel</a>
+            <a href="buku_kesihatan.html" class="nav-link">💪 Kesihatan</a>
+            <a href="buku_teknologi.html" class="nav-link">💻 Teknologi</a>
+        </nav>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 fade-in">
+            <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                <img src="buku1.jpg" alt="Buku Matematik" class="book-image rounded-lg">
+                <h2 class="text-xl font-bold mt-3 text-orange-600">➗ Buku Matematik</h2>
+                <p class="text-gray-600">Tingkatan 5 - Logik & Kreatif</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300" style="animation-delay: 0.2s;">
+                <img src="buku2.jpg" alt="Buku Sains" class="book-image rounded-lg">
+                <h2 class="text-xl font-bold mt-3 text-orange-600">🔬 Buku Sains</h2>
+                <p class="text-gray-600">Tingkatan 4 - Eksperimen Menarik</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300" style="animation-delay: 0.4s;">
+                <img src="buku3.WEBP" alt="Buku Sejarah" class="book-image rounded-lg">
+                <h2 class="text-xl font-bold mt-3 text-orange-600">📜 Buku Sejarah</h2>
+                <p class="text-gray-600">Tingkatan 3 - Kenali Warisan Kita</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-yellow-100 text-center py-4 mt-10 fade-in">
+        <p class="text-gray-700">Hubungi Kami: 011-3234 54879 - Faez | Email: <a href="mailto:fizontal@gmail.com" class="text-orange-600 font-bold">fizontal@gmail.com</a></p>
+    </footer>
+</body>
+</html>
