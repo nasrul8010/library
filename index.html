@@ -2,127 +2,167 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Perpustakaan Ceria</title>
+    <title>Dashboard E-Perpustakaan Ceria</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .nav-link {
-            padding: 8px 16px;
+        .card {
+            background: white;
             border-radius: 12px;
-            background: #FFEB3B;
-            color: #4CAF50;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
         }
-
-        .nav-link:hover {
-            background: #FFC107;
-            transform: scale(1.1);
+        .card:hover {
+            transform: translateY(-5px);
         }
-
-        header {
-            background: linear-gradient(135deg, #FF6F61, #FFAB40);
-        }
-
-        /* Gambar buku semua 700px tinggi */
         .book-image {
             width: 100%;
-            height: 700px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 8px;
         }
     </style>
 </head>
-<body class="bg-pink-100">
-    <div class="container mx-auto p-6">
-        <header class="text-white text-center py-5 rounded-lg shadow-md fade-in">
-            <h1 class="text-4xl font-bold">📚 E-Perpustakaan Ceria 🌟</h1>
-            <p class="mt-2">Selamat Datang! Cari buku kegemaran anda di sini!</p>
-        </header>
+<body class="bg-pink-100 p-6">
 
-        <nav class="mt-6 bg-white p-4 rounded-lg shadow-md fade-in flex justify-around">
-            <a href="majalah.html" class="nav-link">📰 Majalah</a>
-            <a href="novel.html" class="nav-link">📖 Novel</a>
-            <a href="buku_sekolah.html" class="nav-link">🏫 Buku Sekolah</a>
-            <a href="buku_kesihatan.html" class="nav-link">💪 Kesihatan</a>
-            <a href="buku_teknologi.html" class="nav-link">💻 Teknologi</a>
-        </nav>
+<header class="text-center bg-gradient-to-r from-pink-500 to-yellow-300 text-white py-4 rounded-lg">
+    <h1 class="text-3xl font-bold">📚 Dashboard E-Perpustakaan Ceria 🌟</h1>
+</header>
 
-        <div class="mt-6 fade-in" style="animation-delay: 0.3s;">
-            <input id="searchInput" type="text" placeholder="🔎 Cari buku kesukaan..." 
-                   class="w-full p-3 border-2 border-pink-300 rounded-lg shadow-sm transition duration-300 focus:ring-2 focus:ring-pink-500 focus:outline-none" 
-                   onkeyup="searchBooks()">
+<!-- Carian -->
+<div class="mt-4">
+    <input id="searchInput" type="text" placeholder="🔎 Cari buku..." 
+        class="w-full p-3 border-2 border-pink-400 rounded-lg" onkeyup="searchBooks()">
+</div>
+
+<!-- Dashboard Kategori Buku -->
+<div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6" id="bookDashboard">
+    <!-- Majalah -->
+    <a href="majalah.html" class="card p-4" data-title="majalah sains terkini">
+        <h2 class="text-xl font-bold text-pink-600">📖 Majalah</h2>
+        <img src="majalah1.jpg" alt="Majalah Sains" class="book-image">
+        <p class="mt-2 font-bold">Majalah Sains Terkini</p>
+    </a>
+
+    <!-- Novel -->
+    <a href="novel.html" class="card p-4" data-title="novel cinta abadi">
+        <h2 class="text-xl font-bold text-pink-600">📖 Novel</h2>
+        <img src="novel1.jpg" alt="Novel Cinta" class="book-image">
+        <p class="mt-2 font-bold">Novel Cinta Abadi</p>
+    </a>
+
+    <!-- Buku Sekolah -->
+    <a href="buku_sekolah.html" class="card p-4" data-title="buku teks sejarah">
+        <h2 class="text-xl font-bold text-pink-600">📖 Buku Sekolah</h2>
+        <img src="buku3.webp" alt="Buku Sejarah" class="book-image">
+        <p class="mt-2 font-bold">Buku Teks Sejarah</p>
+    </a>
+
+    <!-- Buku Kesihatan -->
+    <a href="buku_kesihatan.html" class="card p-4" data-title="kesihatan menyeluruh">
+        <h2 class="text-xl font-bold text-pink-600">📖 Buku Kesihatan</h2>
+        <img src="kesihatan1.jpg" alt="Buku Kesihatan" class="book-image">
+        <p class="mt-2 font-bold">Kesihatan Menyeluruh</p>
+    </a>
+
+    <!-- Buku Teknologi -->
+    <a href="buku_teknologi.html" class="card p-4" data-title="buku teknologi masa depan">
+        <h2 class="text-xl font-bold text-pink-600">📖 Buku Teknologi</h2>
+        <img src="teknologi1.jpg" alt="Buku Teknologi" class="book-image">
+        <p class="mt-2 font-bold">Buku Teknologi Masa Depan</p>
+    </a>
+</div>
+
+<!-- Borang Peminjaman -->
+<div class="bg-white p-6 rounded-lg mt-8 shadow-lg">
+    <h2 class="text-2xl font-bold text-pink-600">📥 Borang Peminjaman Buku</h2>
+    <form id="loanForm" class="mt-4">
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold">Nama Peminjam:</label>
+            <input type="text" id="namaPeminjam" class="w-full p-3 border rounded-lg">
         </div>
-
-        <div id="bookList" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <!-- Buku 1 -->
-            <div class="bg-white p-4 rounded-lg shadow-md fade-in">
-                <a href="buku_ceria1.html">
-                    <img src="book1.jpg" alt="Buku Ceria 1" class="book-image">
-                </a>
-                <h2 class="text-xl font-bold mt-3">Buku Ceria 1</h2>
-                <p class="text-gray-600">Seronok dan penuh warna-warni!</p>
-            </div>
-
-            <!-- Buku 2 -->
-            <div class="bg-white p-4 rounded-lg shadow-md fade-in" style="animation-delay: 0.4s;">
-                <a href="buku_ceria2.html">
-                    <img src="book2.jpg" alt="Buku Ceria 2" class="book-image">
-                </a>
-                <h2 class="text-xl font-bold mt-3">Buku Ceria 2</h2>
-                <p class="text-gray-600">Membawa anda ke dunia imaginasi.</p>
-            </div>
-
-            <!-- Buku 3 -->
-            <div class="bg-white p-4 rounded-lg shadow-md fade-in" style="animation-delay: 0.5s;">
-                <a href="buku_ceria3.html">
-                    <img src="book3.jpg" alt="Buku Ceria 3" class="book-image">
-                </a>
-                <h2 class="text-xl font-bold mt-3">Buku Ceria 3</h2>
-                <p class="text-gray-600">Penuh inspirasi dan motivasi.</p>
-            </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold">Tajuk Buku:</label>
+            <input type="text" id="tajukBuku" class="w-full p-3 border rounded-lg">
         </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold">Tarikh Pinjam:</label>
+            <input type="date" id="tarikhPinjam" class="w-full p-3 border rounded-lg">
+        </div>
+        <button type="button" class="bg-pink-500 text-white py-2 px-6 rounded-lg" onclick="tambahPeminjaman()">Hantar</button>
+    </form>
+</div>
 
-        <footer class="bg-yellow-100 text-center py-4 mt-10 fade-in">
-            <p class="text-gray-700">Hubungi Kami: 019512630 - Fat | Email: <a href="mailto:fatamorgana@gmail.com" class="text-pink-600 font-bold">fatamorgana@gmail.com</a></p>
-        </footer>
+<!-- Senarai Peminjaman -->
+<div class="bg-white p-6 rounded-lg mt-8 shadow-lg">
+    <h2 class="text-2xl font-bold text-pink-600">📄 Senarai Peminjaman</h2>
+    <table class="w-full mt-4 border-collapse border border-pink-300">
+        <thead>
+            <tr class="bg-pink-500 text-white">
+                <th class="border border-pink-300 p-2">Nama Peminjam</th>
+                <th class="border border-pink-300 p-2">Tajuk Buku</th>
+                <th class="border border-pink-300 p-2">Tarikh Pinjam</th>
+            </tr>
+        </thead>
+        <tbody id="loanTable">
+            <!-- Data pinjaman akan ditambah di sini -->
+        </tbody>
+    </table>
+</div>
 
-        <script>
-            function searchBooks() {
-                const input = document.getElementById('searchInput').value.toLowerCase();
-                const books = document.querySelectorAll('#bookList div');
+<footer class="mt-8 text-center text-gray-600">
+    📧 Hubungi: <a href="mailto:fatamorgana@gmail.com" class="text-pink-500 font-bold">fatamorgana@gmail.com</a>
+</footer>
 
-                books.forEach(book => {
-                    const title = book.querySelector('h2').innerText.toLowerCase();
-                    if (title.includes(input)) {
-                        book.style.display = '';
-                    } else {
-                        book.style.display = 'none';
-                    }
-                });
+<script>
+    const loans = [];
+
+    function searchBooks() {
+        const searchValue = document.getElementById('searchInput').value.toLowerCase();
+        const books = document.querySelectorAll('#bookDashboard a');
+
+        books.forEach(book => {
+            const title = book.getAttribute('data-title');
+            if (title.includes(searchValue)) {
+                book.style.display = '';
+            } else {
+                book.style.display = 'none';
             }
-        </script>
-    </div>
+        });
+    }
+
+    function tambahPeminjaman() {
+        const nama = document.getElementById('namaPeminjam').value;
+        const tajuk = document.getElementById('tajukBuku').value;
+        const tarikh = document.getElementById('tarikhPinjam').value;
+
+        if (nama && tajuk && tarikh) {
+            const newLoan = { nama, tajuk, tarikh };
+            loans.push(newLoan);
+            updateLoanTable();
+            document.getElementById('loanForm').reset();
+        } else {
+            alert('Sila lengkapkan semua maklumat!');
+        }
+    }
+
+    function updateLoanTable() {
+        const loanTable = document.getElementById('loanTable');
+        loanTable.innerHTML = '';
+
+        loans.forEach(loan => {
+            const row = `
+                <tr>
+                    <td class="border border-pink-300 p-2">${loan.nama}</td>
+                    <td class="border border-pink-300 p-2">${loan.tajuk}</td>
+                    <td class="border border-pink-300 p-2">${loan.tarikh}</td>
+                </tr>`;
+            loanTable.innerHTML += row;
+        });
+    }
+</script>
+
 </body>
 </html>
